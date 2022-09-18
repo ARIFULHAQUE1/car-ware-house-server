@@ -34,6 +34,13 @@ async function run() {
       res.send(result);
     })
 
+    // insert Product on Db
+    app.post('/inventory',async(req,res)=>{
+      const data = req.body;
+      const result = await inventoryCollection.insertOne(data);
+      res.send(result)
+    })
+
 //  handle quantity and delivered quantity
 
     app.put('/handleQuantity/:id', async (req,res)=>{
